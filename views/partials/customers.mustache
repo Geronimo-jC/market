@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            {{#header}}
+            <th>{{.}}</th>
+            {{/header}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#body}}
+        <tr>
+            <td>{{ dni }}</td>
+            <td>{{ nombre }}</td>
+            <td>{{ apellido }}</td>
+            <td>{{ telefono }}</td>
+        </tr>
+        {{/body}}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+<table>
+    <thead>
+        <tr>
+            {{#header}}
+            <th>{{.}}</th>
+            {{/header}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#body}}
+        <tr>
+            <td>{{ id_proveedor }}</td>
+            <td>{{ nombre }}</td>
+            <td>{{ direccion }}</td>
+            <td>{{ telefono }}</td>
+        </tr>
+        {{/body}}
+    </tbody>
+</table>
+
+<h4>Hacer peticion de nuevos productos</h4>
+<form onsubmit="sendDataSupplier(event)">
+    <input type="text" name="nombre" placeholder="producto">
+    <select name="marca">
+        <option value="Samsung">Samsung</option>
+        <option value="LG">LG</option>
+        <option value="Oster">Oster</option>
+        <option value="Freezer">Freezer</option>
+    </select>
+    <select name="color">
+        <option value="Negro">Negro</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Gris">Gris</option>
+        <option value="Rojo">Rojo</option>
+    </select>
+    <input type="text" name="modelo" placeholder="modelo">
+    <input type="number" name="stock" placeholder="cantidad">
+    <input type="number" name="precio" placeholder="precio c/u">
+    <button type="submit">Ordenar</button>
+</form>

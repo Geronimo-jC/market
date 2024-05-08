@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            {{#header}}
+            <th>{{.}}</th>
+            {{/header}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#body}}
+        <tr>
+            <td>{{ id_producto }}</td>
+            <td>{{ nombre }}</td>
+            <td>{{ marca }}</td>
+            <td>{{ color }}</td>
+            <td>{{ modelo }}</td>
+            <td>{{ stock }}</td>
+            <td>{{ precio }}</td>
+        </tr>
+        {{/body}}
+    </tbody>
+</table>
