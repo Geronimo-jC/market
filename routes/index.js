@@ -5,10 +5,6 @@ import producto from './producto.js';
 
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    res.redirect('/producto')
-})
-
 router.use('/cliente', cliente);
 router.use('/proveedor', proveedor);
 router.use('/producto', producto);

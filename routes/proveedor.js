@@ -1,9 +1,23 @@
-import { path, __dirname } from "../configs.js";
 import express from 'express'
+import { getSupplier } from '../db/proveedor.js'
+import { insertNewProduct } from '../db/producto.js';
 const router = express.Router()
 
-router.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'views/proveedor.html'))
+router.get('/',async (req,res)=>{
+    const supplier = await getSupplier();
+    const content = {
+        header: Object.keys(supplier[0]),
+        body: supplier,
+        supplier: true,
+        title: "Proveedores"
+    }
+    res.render('index',content)
+})
+
+router.post('/ordenar',async (req,res)=>{
+    const body = req.body;
+    await insertNewProduct(body)
+    res.send('Datos recibidos')
 })
 
 export default router;

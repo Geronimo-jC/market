@@ -12,11 +12,13 @@ const USSER_DB = process.env.USSER_DB;
 const HOST_DB = process.env.HOST_DB;
 const PORT = process.env.PORT;
 
-const connection = await mysql.createConnection({
-    host: HOST_DB,
-    user: USSER_DB,
-    password: PASSWORD_DB,
-    database: NAME_DB
-});
+const createConnection = ()=>{
+    return mysql.createConnection({
+        host: HOST_DB,
+        user: USSER_DB,
+        password: PASSWORD_DB,
+        database: NAME_DB
+    });
+}
 
-export { __filename, __dirname, path, connection, PORT }
+export { __filename, __dirname, path, createConnection, PORT }
