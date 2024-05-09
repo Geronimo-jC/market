@@ -22,10 +22,9 @@
 <form onsubmit="sendDataSupplier(event)">
     <input type="text" name="nombre" placeholder="producto">
     <select name="marca">
-        <option value="Samsung">Samsung</option>
-        <option value="LG">LG</option>
-        <option value="Oster">Oster</option>
-        <option value="Freezer">Freezer</option>
+        {{#names}}
+        <option value="{{nombre}}">{{nombre}}</option>
+        {{/names}}
     </select>
     <select name="color">
         <option value="Negro">Negro</option>
