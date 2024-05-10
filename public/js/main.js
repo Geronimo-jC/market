@@ -22,7 +22,7 @@ const sendDataSupplier = async (e)=>{
 
 const deleteRecord = async (id_producto)=>{
     if(confirm(`¿Desea eliminar este registro? Registro: ${id_producto}`)){
-        const response = await fetch(`producto/eliminar/${Number(id_producto)}`);
+        const response = await fetch(`producto/eliminar/${id_producto}`);
         if(response.status !== 200){
             alert(`Fallo al eliminar un producto. Error ${response.status}`);
         }else{

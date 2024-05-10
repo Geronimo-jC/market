@@ -3,6 +3,8 @@ import { getIdSupplier, getNamesSupplier, getSupplier } from '../db/proveedor.js
 import { insertNewProduct } from '../db/producto.js';
 import { insertNewRecord } from '../db/provee.js';
 import authenticate from '../middleware/authenticate.js';
+import addRegisterAdmin from '../middleware/addRegisterAdmin.js';
+import { insertRecordAdmin } from '../db/registo_admin.js';
 const router = express.Router()
 
 router.get('/',authenticate,async (req,res)=>{
@@ -29,8 +31,16 @@ router.post('/ordenar', authenticate,async (req,res)=>{
         cantidad: body.stock,
         fecha
     }
-    await insertNewRecord(record);
-    res.send('Datos recibidos');
+    const data = addRegisterAdmin('Ordeno un nuevo producto.', re);
+    try {
+        await insertNewRecord(record);
+        await insertRecordAdmin(data);
+        
+        res.sendStatus(200);
+    } catch (error) {
+        console.error(`Error al insertar registros. Error: ${error}`);
+        res.sendStatus(500);
+    }
 })
 
 export default router;

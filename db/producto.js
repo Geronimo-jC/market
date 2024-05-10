@@ -12,6 +12,18 @@ const getProduct = async ()=>{
     }
 }
 
+const getColumnsTable = async ()=>{
+    const connection = await createConnection();
+    try {
+        let [ columns ] = await connection.query(`describe producto;`);
+        return columns;
+    } catch (error) {
+        console.error(`Error al realizar la consulta. Error: ${error}`);
+    }finally{
+        await connection.end();
+    }
+}
+
 const insertNewProduct = async (product)=>{
     const connection = await createConnection()
     try {
@@ -40,4 +52,4 @@ const deleteProduct = async (id_producto)=>{
     }
 }
 
-export { getProduct, insertNewProduct, deleteProduct}
+export { getProduct, insertNewProduct, deleteProduct, getColumnsTable}

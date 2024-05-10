@@ -18,7 +18,7 @@ router.post('/login/admin', async (req, res) => {
     if(result){
         req.session.usuario = {
             id: usuario.id_admin,
-            usuario: usuario.nombre
+            nombre: usuario.nombre
         }
         res.sendStatus(200)
     }else{

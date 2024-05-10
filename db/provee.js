@@ -19,4 +19,15 @@ const insertNewRecord = async (data)=>{
     }
 }
 
-export { insertNewRecord };
+const deleteRecord = async (id_producto)=>{
+    const connection = await createConnection();
+    try {
+        await connection.query(`delete from provee where id_producto = ${id_producto};`);        
+    } catch (error) {
+        console.error(`Error al reliazar la peticion. Error: ${error}`);
+    }finally{
+        await connection.end();
+    }
+}
+
+export { insertNewRecord, deleteRecord };
