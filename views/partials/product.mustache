@@ -4,11 +4,12 @@
             {{#header}}
             <th>{{.}}</th>
             {{/header}}
+            <th>*</th>
         </tr>
     </thead>
     <tbody>
         {{#body}}
-        <tr>
+        <tr id="{{ id_producto }}">
             <td>{{ id_producto }}</td>
             <td>{{ nombre }}</td>
             <td>{{ marca }}</td>
@@ -16,6 +17,10 @@
             <td>{{ modelo }}</td>
             <td>{{ stock }}</td>
             <td>{{ precio }}</td>
+            <td>
+                <button>Modificar</button>
+                <button onclick="deleteRecord('{{ id_producto }}')">Eliminar</button>
+            </td>
         </tr>
         {{/body}}
     </tbody>

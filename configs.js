@@ -11,6 +11,7 @@ const NAME_DB = process.env.NAME_DB;
 const USSER_DB = process.env.USSER_DB;
 const HOST_DB = process.env.HOST_DB;
 const PORT = process.env.PORT;
+const SECRET = process.env.SECRET;
 
 const createConnection = ()=>{
     return mysql.createConnection({
@@ -21,4 +22,4 @@ const createConnection = ()=>{
     });
 }
 
-export { __filename, __dirname, path, createConnection, PORT }
+export { __filename, __dirname, path, createConnection, PORT, SECRET }

@@ -5,11 +5,13 @@ import staticFile from "./middleware/staticFile.js";
 import engine from './middleware/engine.js';
 import views from './middleware/views.js';
 import json from './middleware/json.js';
+import session from './middleware/session.js';
 
 import index from './routes/index.js';
 
 const app = express()
 
+session(app);
 staticFile(app);
 engine(app);
 views(app);
